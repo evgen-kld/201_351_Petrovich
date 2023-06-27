@@ -92,7 +92,9 @@ void game_app::createTable() {
     for (int i = 0; i < 12; i++)
     {
         ui->table->insertRow(i);
-        lineEdit = new QLineEdit(QString::number(array[i]));
+        QString number = QString::number(array[i]);
+        number = number.leftJustified(4, '0');
+        lineEdit = new QLineEdit(number);
         lineEdit->setEchoMode(QLineEdit::Password);
         lineEdit->setProperty("row", i);
         lineEdit->setReadOnly(true);

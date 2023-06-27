@@ -13,15 +13,12 @@ void debug(int pid) {
         WaitForDebugEvent(&DBEvent, INFINITE);
 
         if (DBEvent.dwDebugEventCode == EXIT_PROCESS_DEBUG_EVENT) {
-            // Процесс игры завершился
             std::cout << "Game process exited." << std::endl;
 
             HANDLE hProcess = OpenProcess(PROCESS_TERMINATE, FALSE, pid);
 
-            // Завершаем процесс-спутник
             TerminateProcess(hProcess, 0);
 
-            // Завершаем приложение
             ExitProcess(0);
         }
 
