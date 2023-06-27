@@ -9,8 +9,6 @@
 #include <windows.h>
 #include <QCryptographicHash>
 
-//using namespace std;
-
 QT_BEGIN_NAMESPACE
 namespace Ui { class game_app; }
 QT_END_NAMESPACE
