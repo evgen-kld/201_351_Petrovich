@@ -41,7 +41,9 @@ bool game_app::eventFilter(QObject* watched, QEvent* event)
                 for (int i = 0; i < 12; i++)
                 {
                     if (i != row){
-                        lineEdit = new QLineEdit(QString::number(array[i]));
+                        QString number = QString::number(array[i]);
+                        number = number.leftJustified(4, '0');
+                        lineEdit = new QLineEdit(number);
                         lineEdit->setEchoMode(QLineEdit::Password);
                         lineEdit->setProperty("row", i);
                         lineEdit->setReadOnly(true);
@@ -49,7 +51,9 @@ bool game_app::eventFilter(QObject* watched, QEvent* event)
                         ui->table->setCellWidget(i, 0, lineEdit);
                     }
                     else {
-                        lineEdit = new QLineEdit(QString::number(array[i]));
+                        QString number = QString::number(array[i]);
+                        number = number.leftJustified(4, '0');
+                        lineEdit = new QLineEdit(number);
                         lineEdit->setEchoMode(QLineEdit::Normal);
                         lineEdit->setReadOnly(true);
                         ui->table->setCellWidget(i, 0, lineEdit);
